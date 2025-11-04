@@ -389,8 +389,277 @@ const QUESTIONS = [
     answer:['cuotas','vedas','tallas mínimas','talla mínima'],
     explain:'Cuotas, vedas y tallas mínimas son medidas clave.'
   }
-];
 
+  { id:21, tag:'Clima', type:'mcq',
+    title:'En un clima árido, ¿qué problema aparece con más frecuencia?',
+    sub:'',
+    options:[
+      {key:'A', text:'Exceso de agua y anegamiento'},
+      {key:'B', text:'Falta de agua y estrés hídrico'},
+      {key:'C', text:'Heladas constantes todo el año'}
+    ],
+    answer:'B',
+    explain:'La aridez implica precipitaciones escasas e irregulares → estrés hídrico.'
+  },
+
+  // 22 Suelo · mejora sin síntesis
+  { id:22, tag:'Suelo', type:'mcq',
+    title:'¿Qué práctica mejora el suelo sin fertilizantes de síntesis?',
+    sub:'',
+    options:[
+      {key:'A', text:'Compostaje y abonado orgánico'},
+      {key:'B', text:'Aplicar herbicida selectivo'},
+      {key:'C', text:'Aportar sólo NPK químico'}
+    ],
+    answer:'A',
+    explain:'El compost/abono orgánico mejora estructura, microbiota y nutrientes.'
+  },
+
+  // 23 Relieve · bancales (imagen)
+  { id:23, tag:'Relieve', type:'image-mcq',
+    title:'Observa el esquema. ¿Qué técnica permite cultivar laderas?',
+    sub:'',
+    options:[
+      {key:'A', text:'Bancales o terrazas'},
+      {key:'B', text:'Riego por inundación'},
+      {key:'C', text:'Barbecho largo'}
+    ],
+    answer:'A',
+    media:{
+      kind:'svg',
+      html:`<svg class="svgimg" viewBox="0 0 420 220">
+        <rect width="420" height="220" fill="#0b1622"/>
+        <g transform="translate(30,30)">
+          <polygon points="0,140 360,60 360,160 0,160" fill="#17324a"/>
+          <g fill="#275676" stroke="#3b7aa5">
+            <rect x="10" y="120" width="320" height="10"/>
+            <rect x="30" y="100" width="300" height="10"/>
+            <rect x="70" y="80"  width="260" height="10"/>
+          </g>
+        </g>
+        <text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Plataformas horizontales en ladera</text>
+      </svg>`,
+      caption:'Terrazas o bancales para salvar la pendiente.'
+    },
+    explain:'Los bancales reducen pendiente y erosión, facilitando el cultivo.'
+  },
+
+  // 24 Secano vs regadío
+  { id:24, tag:'Agua', type:'mcq',
+    title:'¿Qué ventaja típica presenta el secano frente al regadío?',
+    sub:'',
+    options:[
+      {key:'A', text:'Menor consumo de agua'},
+      {key:'B', text:'Rendimientos siempre superiores'},
+      {key:'C', text:'Independencia total del clima'}
+    ],
+    answer:'A',
+    explain:'El secano usa la lluvia; consume menos agua, aunque rinde menos.'
+  },
+
+  // 25 Estructura de la propiedad (short)
+  { id:25, tag:'Paisaje', type:'short',
+    title:'Explotación agraria de gran tamaño: escribe el término.',
+    sub:'Una palabra.',
+    answer:['latifundio'],
+    explain:'Latifundio = gran propiedad; minifundio = pequeña.'
+  },
+
+  // 26 Rotación de cultivos
+  { id:26, tag:'Sistemas', type:'mcq',
+    title:'La rotación de cultivos ayuda principalmente a…',
+    sub:'',
+    options:[
+      {key:'A', text:'Reducir plagas y mejorar el suelo'},
+      {key:'B', text:'Aumentar el riesgo de enfermedades'},
+      {key:'C', text:'Gastar más agua y químicos'}
+    ],
+    answer:'A',
+    explain:'Alternar cultivos rompe ciclos de plagas y equilibra nutrientes.'
+  },
+
+  // 27 Agricultura ecológica (short)
+  { id:27, tag:'Ecológica', type:'short',
+    title:'Escribe el término: producción sin síntesis química y con respeto ambiental.',
+    sub:'1–2 palabras.',
+    answer:['agricultura ecológica','agricultura orgánica','ecológica','orgánica'],
+    explain:'La agricultura ecológica prescinde de síntesis química y OMG.'
+  },
+
+  // 28 Arroz monzónico
+  { id:28, tag:'Países', type:'mcq',
+    title:'El arroz monzónico se caracteriza por…',
+    sub:'',
+    options:[
+      {key:'A', text:'Parcelas inundadas y mucha mano de obra'},
+      {key:'B', text:'Secano y mecanización total'},
+      {key:'C', text:'Cultivo en invernadero con goteo'}
+    ],
+    answer:'A',
+    explain:'Es un cultivo irrigado tradicional con alta demanda laboral.'
+  },
+
+  // 29 Ganadería e impacto
+  { id:29, tag:'Ganadería', type:'mcq',
+    title:'¿Qué impacto ambiental puede asociarse a la ganadería intensiva?',
+    sub:'',
+    options:[
+      {key:'A', text:'Emisiones y gestión de purines'},
+      {key:'B', text:'Captura neta de CO₂ por pastos'},
+      {key:'C', text:'Aumento de biodiversidad en setos'}
+    ],
+    answer:'A',
+    explain:'Purines, consumo de agua y emisiones son retos de la intensiva.'
+  },
+
+  // 30 Bienestar animal
+  { id:30, tag:'Ganadería', type:'mcq',
+    title:'Una medida relacionada con el bienestar animal es…',
+    sub:'',
+    options:[
+      {key:'A', text:'Aumentar densidad sin límite'},
+      {key:'B', text:'Mejorar ventilación y espacio'},
+      {key:'C', text:'Suprimir agua de bebida'}
+    ],
+    answer:'B',
+    explain:'Espacio, ventilación, manejo y salud son claves.'
+  },
+
+  // 31 Pesca de altura (imagen)
+  { id:31, tag:'Pesca', type:'image-mcq',
+    title:'Observa el esquema del buque. ¿Qué tipo de pesca es?',
+    sub:'',
+    options:[
+      {key:'A', text:'Litoral (artesanal)'},
+      {key:'B', text:'Bajura (costera)'},
+      {key:'C', text:'Altura (altamar)'}
+    ],
+    answer:'C',
+    media:{
+      kind:'svg',
+      html:`<svg class="svgimg" viewBox="0 0 420 220">
+        <rect width="420" height="220" fill="#0b1622"/>
+        <g transform="translate(30,90)">
+          <rect x="0" y="40" width="360" height="4" fill="#1b3a56"/>
+          <polygon points="40,40 120,20 260,20 300,40" fill="#215074"/>
+          <rect x="160" y="0" width="40" height="18" fill="#2e7fb5"/>
+          <circle cx="260" cy="34" r="8" fill="#6ed5ff"/>
+        </g>
+        <text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Buque grande, navegación de larga distancia</text>
+      </svg>`,
+      caption:'Flota de gran tamaño, campañas largas → pesca de altura.'
+    },
+    explain:'Altura = altamar con buques grandes y largas mareas.'
+  },
+
+  // 32 Acuicultura · límites
+  { id:32, tag:'Acuicultura', type:'mcq',
+    title:'¿Cuál es un límite/riesgo de la acuicultura?',
+    sub:'',
+    options:[
+      {key:'A', text:'Impactos locales y uso de harinas de pescado'},
+      {key:'B', text:'Imposibilidad de producir a gran escala'},
+      {key:'C', text:'Prohíbe el consumo de agua'}
+    ],
+    answer:'A',
+    explain:'Puede requerir harinas/aceites y generar impactos locales si no se gestiona bien.'
+  },
+
+  // 33 PAC · ecoesquemas (short)
+  { id:33, tag:'UE', type:'short',
+    title:'Dentro de la PAC, escribe el instrumento ambiental que retribuye prácticas sostenibles.',
+    sub:'Una palabra.',
+    answer:['ecoesquemas','ecoesquema'],
+    explain:'Los ecoesquemas incentivan prácticas beneficiosas para el clima y el medio.'
+  },
+
+  // 34 PPC objetivo
+  { id:34, tag:'UE', type:'mcq',
+    title:'La PPC (pesca) persigue sobre todo…',
+    sub:'',
+    options:[
+      {key:'A', text:'Maximizar capturas sin límites'},
+      {key:'B', text:'Sostenibilidad de los recursos y ecosistemas'},
+      {key:'C', text:'Sustituir toda la pesca por acuicultura'}
+    ],
+    answer:'B',
+    explain:'Sostenibilidad biológica, social y económica de la actividad pesquera.'
+  },
+
+  // 35 España · valor en regadío
+  { id:35, tag:'España', type:'mcq',
+    title:'¿Qué grupo suele concentrar más valor en el regadío español?',
+    sub:'',
+    options:[
+      {key:'A', text:'Hortofrutícolas'},
+      {key:'B', text:'Cereales de secano'},
+      {key:'C', text:'Forrajeras'}
+    ],
+    answer:'A',
+    explain:'Frutas y hortalizas de regadío concentran gran parte del valor.'
+  },
+
+  // 36 CYL · D.O. trampa
+  { id:36, tag:'CYL', type:'mcq',
+    title:'¿Cuál de las siguientes NO es una D.O. de Castilla y León?',
+    sub:'',
+    options:[
+      {key:'A', text:'Ribera del Duero'},
+      {key:'B', text:'Rueda'},
+      {key:'C', text:'La Mancha'}
+    ],
+    answer:'C',
+    explain:'“La Mancha” pertenece a Castilla-La Mancha, no a Castilla y León.'
+  },
+
+  // 37 CYL · ganadería principal
+  { id:37, tag:'CYL', type:'mcq',
+    title:'En Castilla y León, ¿qué cabaña ganadera destaca especialmente?',
+    sub:'',
+    options:[
+      {key:'A', text:'Ovina'},
+      {key:'B', text:'Camélida'},
+      {key:'C', text:'Apícola (abejas)'}
+    ],
+    answer:'A',
+    explain:'CYL está entre las primeras CCAA en ovino.'
+  },
+
+  // 38 CYL · cultivo predominante
+  { id:38, tag:'CYL', type:'mcq',
+    title:'En la meseta de Castilla y León predomina…',
+    sub:'',
+    options:[
+      {key:'A', text:'Cereal de secano'},
+      {key:'B', text:'Arroz monzónico'},
+      {key:'C', text:'Platanera'}
+    ],
+    answer:'A',
+    explain:'El cereal de secano es el cultivo más extendido.'
+  },
+
+  // 39 Riego · sistema más eficiente
+  { id:39, tag:'Riego', type:'mcq',
+    title:'¿Qué sistema suele ser más eficiente en uso de agua?',
+    sub:'',
+    options:[
+      {key:'A', text:'Goteo'},
+      {key:'B', text:'Aspersión'},
+      {key:'C', text:'Inundación'}
+    ],
+    answer:'A',
+    explain:'El goteo aplica el agua justo al sistema radicular.'
+  },
+
+  // 40 Conservación suelo (short)
+  { id:40, tag:'Suelo', type:'short',
+    title:'Escribe una técnica para frenar la erosión en laderas.',
+    sub:'1–3 palabras.',
+    answer:['bancales','terrazas','terrazamiento'],
+    explain:'El terrazamiento reduce la pendiente efectiva y la escorrentía.'
+  }
+];
+  
 /* ========= LÓGICA DEL TEST ========= */
 let idx = 0;
 const state = QUESTIONS.map(q => ({ id:q.id, user:null, correct:null }));
