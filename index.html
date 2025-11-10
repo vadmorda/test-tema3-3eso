@@ -98,20 +98,10 @@
     </div>
   </div>
 </div>
-
 <script>
-/* ========= CONFIGURACIÓN DE PREGUNTAS =========
-   Tipos: "mcq" (3 opciones), "image-mcq" (con imagen/SVG), "short" (1–3 palabras).
-   Campos:
-   - id, tag, title, sub
-   - type
-   - options: [{key:'A', text:'...'}, ...] (solo MCQ)
-   - answer: 'A' | 'B' | 'C'  (MCQ)  o  ['palabra1','palabra 2',...] (SHORT; acepta variantes)
-   - media: { kind:'img'|'svg', html|src, caption }
-   - explain: texto corto para aprender tras comprobar
-*/
+/* ========= CONFIGURACIÓN DE PREGUNTAS ========= */
 const QUESTIONS = [
-  // 1 Definición
+  /* ---------- 1–20 (tus preguntas originales) ---------- */
   { id:1, tag:'Concepto', type:'mcq',
     title:'¿Qué actividades componen el sector primario?',
     sub:'Selecciona la opción más completa.',
@@ -123,7 +113,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'El sector primario obtiene recursos directamente de la naturaleza: agricultura, ganadería, pesca y aprovechamientos forestales.'
   },
-  // 2 Tendencias globales
   { id:2, tag:'Tendencias', type:'mcq',
     title:'En la mayoría de países desarrollados, el sector primario…',
     sub:'Piensa en empleo y productividad.',
@@ -135,7 +124,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'Con la mecanización y la tecnología, baja el empleo relativo y sube la productividad.'
   },
-  // 3 Factores: clima
   { id:3, tag:'Físicos', type:'mcq',
     title:'¿Cuál NO es un límite climático típico para la agricultura?',
     sub:'',
@@ -147,7 +135,6 @@ const QUESTIONS = [
     answer:'C',
     explain:'Frío/calor extremos y aridez limitan; las brisas no son un freno general.'
   },
-  // 4 Relieve
   { id:4, tag:'Físicos', type:'mcq',
     title:'El relieve más favorable para el cultivo extensivo es…',
     sub:'',
@@ -159,7 +146,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'Las llanuras/pedientes suaves facilitan mecanización y rendimiento.'
   },
-  // 5 Sistemas: agua
   { id:5, tag:'Sistemas', type:'mcq',
     title:'El regadío por goteo se caracteriza por…',
     sub:'',
@@ -171,7 +157,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'El goteo aplica agua directamente al sistema radicular.'
   },
-  // 6 Monocultivo vs policultivo
   { id:6, tag:'Sistemas', type:'mcq',
     title:'El policultivo frente al monocultivo tiende a…',
     sub:'',
@@ -183,7 +168,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'Diversificar reduce riesgos de plagas/precios.'
   },
-  // 7 Paisajes con imagen (openfield)
   { id:7, tag:'Paisaje', type:'image-mcq',
     title:'Observa el esquema y elige el paisaje agrario representado.',
     sub:'Parcelas abiertas o cerradas.',
@@ -199,7 +183,6 @@ const QUESTIONS = [
         <rect width="420" height="220" fill="#0b1622"/>
         <g transform="translate(20,20)">
           <rect x="0" y="0" width="380" height="160" fill="#19334a" stroke="#2a4e6d"/>
-          <!-- campos abiertos sin setos -->
           <rect x="10" y="10" width="360" height="30" fill="#2a5b80"/>
           <rect x="10" y="50" width="360" height="30" fill="#285474"/>
           <rect x="10" y="90" width="360" height="30" fill="#2a5b80"/>
@@ -211,7 +194,6 @@ const QUESTIONS = [
     },
     explain:'Openfield = campos abiertos, sin setos; hábitat concentrado.'
   },
-  // 8 Paisajes con imagen (bocage)
   { id:8, tag:'Paisaje', type:'image-mcq',
     title:'¿Qué paisaje muestran los setos y parcelas cerradas?',
     sub:'',
@@ -227,7 +209,6 @@ const QUESTIONS = [
         <rect width="420" height="220" fill="#0b1622"/>
         <g transform="translate(22,22)">
           <rect x="0" y="0" width="376" height="156" fill="#12283c" stroke="#2a4e6d"/>
-          <!-- parcelas pequeñas con setos -->
           <g fill="#214764" stroke="#3c7aa8" stroke-width="3">
             <rect x="10" y="10" width="80" height="50"/>
             <rect x="100" y="10" width="80" height="50"/>
@@ -245,7 +226,6 @@ const QUESTIONS = [
     },
     explain:'Bocage = mosaico de parcelas cerradas; hábitat disperso/mixto.'
   },
-  // 9 Desarrollados
   { id:9, tag:'Países', type:'mcq',
     title:'Una característica típica de la agricultura en países desarrollados es…',
     sub:'',
@@ -257,7 +237,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'Alta mecanización, biotecnología y especialización.'
   },
-  // 10 En desarrollo
   { id:10, tag:'Países', type:'mcq',
     title:'La agricultura de subsistencia suele…',
     sub:'',
@@ -269,7 +248,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'Pequeñas explotaciones, policultivo, técnicas tradicionales.'
   },
-  // 11 Plantación
   { id:11, tag:'Plantaciones', type:'mcq',
     title:'Una plantación típica se orienta a…',
     sub:'',
@@ -281,7 +259,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'Grandes fincas, monocultivo, capital y mano de obra intensiva.'
   },
-  // 12 Ganadería modelos
   { id:12, tag:'Ganadería', type:'mcq',
     title:'La ganadería extensiva se asocia a…',
     sub:'',
@@ -293,7 +270,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'Aprovecha pastos, menor densidad, ritmos más largos.'
   },
-  // 13 Pesca vs acuicultura
   { id:13, tag:'Pesca', type:'mcq',
     title:'Una medida para evitar la sobrepesca es…',
     sub:'',
@@ -305,7 +281,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'Cuotas, vedas y tallas mínimas son herramientas clave.'
   },
-  // 14 UE PAC/PPC
   { id:14, tag:'UE', type:'mcq',
     title:'La PAC busca principalmente…',
     sub:'',
@@ -317,7 +292,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'Combina competitividad con objetivos ambientales y sociales.'
   },
-  // 15 España cultivos
   { id:15, tag:'España', type:'mcq',
     title:'¿Qué cultivo sitúa a España como líder mundial?',
     sub:'',
@@ -329,21 +303,18 @@ const QUESTIONS = [
     answer:'A',
     explain:'España destaca por el aceite de oliva.'
   },
-  // 16 CYL Acuicultura (respuesta corta)
   { id:16, tag:'CYL', type:'short',
     title:'Escribe la especie más representativa de acuicultura continental en Castilla y León.',
     sub:'Una o dos palabras.',
     answer:['trucha','trucha arco iris'],
     explain:'La trucha (arco iris) es la referencia de la acuicultura continental en CYL.'
   },
-  // 17 CYL Viñedo (short)
   { id:17, tag:'CYL', type:'short',
     title:'Indica una D.O. vitivinícola destacada de Castilla y León.',
     sub:'Una o dos palabras (ejemplos válidos).',
     answer:['ribera del duero','rueda','toro','bierzo','cigales','arribes','tierra de león','tierras de zamora'],
     explain:'Ejemplos: Ribera del Duero, Rueda, Toro, Bierzo, Cigales…'
   },
-  // 18 Riego imagen
   { id:18, tag:'Riego', type:'image-mcq',
     title:'Observa el esquema de riego y selecciona el sistema representado.',
     sub:'',
@@ -359,9 +330,7 @@ const QUESTIONS = [
         <rect width="420" height="220" fill="#0b1622"/>
         <g transform="translate(30,40)">
           <rect x="0" y="80" width="360" height="30" fill="#204a68"/>
-          <!-- tubería -->
           <rect x="0" y="40" width="360" height="8" fill="#2f7fb5" rx="4" ry="4"/>
-          <!-- goteros -->
           <g fill="#6ed5ff">
             <circle cx="40" cy="44" r="4"/><rect x="38" y="48" width="4" height="32"/>
             <circle cx="120" cy="44" r="4"/><rect x="118" y="48" width="4" height="32"/>
@@ -375,21 +344,20 @@ const QUESTIONS = [
     },
     explain:'En el goteo, el agua cae en gotas localizadas, minimizando pérdidas.'
   },
-  // 19 Ganadería intensiva (short)
   { id:19, tag:'Ganadería', type:'short',
     title:'Escribe el término: cría con estabulación y piensos para alta productividad.',
     sub:'Una o dos palabras.',
     answer:['ganadería intensiva','intensiva'],
     explain:'Ganadería intensiva o industrial.'
   },
-  // 20 Pesca (short)
   { id:20, tag:'Pesca', type:'short',
     title:'Escribe una medida de gestión pesquera para proteger recursos.',
     sub:'1–3 palabras (ejemplos).',
     answer:['cuotas','vedas','tallas mínimas','talla mínima'],
     explain:'Cuotas, vedas y tallas mínimas son medidas clave.'
-  }
+  },
 
+  /* ---------- 21–40 (nuevas preguntas) ---------- */
   { id:21, tag:'Clima', type:'mcq',
     title:'En un clima árido, ¿qué problema aparece con más frecuencia?',
     sub:'',
@@ -401,8 +369,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'La aridez implica precipitaciones escasas e irregulares → estrés hídrico.'
   },
-
-  // 22 Suelo · mejora sin síntesis
   { id:22, tag:'Suelo', type:'mcq',
     title:'¿Qué práctica mejora el suelo sin fertilizantes de síntesis?',
     sub:'',
@@ -414,8 +380,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'El compost/abono orgánico mejora estructura, microbiota y nutrientes.'
   },
-
-  // 23 Relieve · bancales (imagen)
   { id:23, tag:'Relieve', type:'image-mcq',
     title:'Observa el esquema. ¿Qué técnica permite cultivar laderas?',
     sub:'',
@@ -443,8 +407,6 @@ const QUESTIONS = [
     },
     explain:'Los bancales reducen pendiente y erosión, facilitando el cultivo.'
   },
-
-  // 24 Secano vs regadío
   { id:24, tag:'Agua', type:'mcq',
     title:'¿Qué ventaja típica presenta el secano frente al regadío?',
     sub:'',
@@ -456,16 +418,12 @@ const QUESTIONS = [
     answer:'A',
     explain:'El secano usa la lluvia; consume menos agua, aunque rinde menos.'
   },
-
-  // 25 Estructura de la propiedad (short)
   { id:25, tag:'Paisaje', type:'short',
     title:'Explotación agraria de gran tamaño: escribe el término.',
     sub:'Una palabra.',
     answer:['latifundio'],
     explain:'Latifundio = gran propiedad; minifundio = pequeña.'
   },
-
-  // 26 Rotación de cultivos
   { id:26, tag:'Sistemas', type:'mcq',
     title:'La rotación de cultivos ayuda principalmente a…',
     sub:'',
@@ -477,16 +435,12 @@ const QUESTIONS = [
     answer:'A',
     explain:'Alternar cultivos rompe ciclos de plagas y equilibra nutrientes.'
   },
-
-  // 27 Agricultura ecológica (short)
   { id:27, tag:'Ecológica', type:'short',
     title:'Escribe el término: producción sin síntesis química y con respeto ambiental.',
     sub:'1–2 palabras.',
     answer:['agricultura ecológica','agricultura orgánica','ecológica','orgánica'],
     explain:'La agricultura ecológica prescinde de síntesis química y OMG.'
   },
-
-  // 28 Arroz monzónico
   { id:28, tag:'Países', type:'mcq',
     title:'El arroz monzónico se caracteriza por…',
     sub:'',
@@ -498,8 +452,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'Es un cultivo irrigado tradicional con alta demanda laboral.'
   },
-
-  // 29 Ganadería e impacto
   { id:29, tag:'Ganadería', type:'mcq',
     title:'¿Qué impacto ambiental puede asociarse a la ganadería intensiva?',
     sub:'',
@@ -511,8 +463,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'Purines, consumo de agua y emisiones son retos de la intensiva.'
   },
-
-  // 30 Bienestar animal
   { id:30, tag:'Ganadería', type:'mcq',
     title:'Una medida relacionada con el bienestar animal es…',
     sub:'',
@@ -524,8 +474,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'Espacio, ventilación, manejo y salud son claves.'
   },
-
-  // 31 Pesca de altura (imagen)
   { id:31, tag:'Pesca', type:'image-mcq',
     title:'Observa el esquema del buque. ¿Qué tipo de pesca es?',
     sub:'',
@@ -551,8 +499,6 @@ const QUESTIONS = [
     },
     explain:'Altura = altamar con buques grandes y largas mareas.'
   },
-
-  // 32 Acuicultura · límites
   { id:32, tag:'Acuicultura', type:'mcq',
     title:'¿Cuál es un límite/riesgo de la acuicultura?',
     sub:'',
@@ -564,16 +510,12 @@ const QUESTIONS = [
     answer:'A',
     explain:'Puede requerir harinas/aceites y generar impactos locales si no se gestiona bien.'
   },
-
-  // 33 PAC · ecoesquemas (short)
   { id:33, tag:'UE', type:'short',
     title:'Dentro de la PAC, escribe el instrumento ambiental que retribuye prácticas sostenibles.',
     sub:'Una palabra.',
     answer:['ecoesquemas','ecoesquema'],
     explain:'Los ecoesquemas incentivan prácticas beneficiosas para el clima y el medio.'
   },
-
-  // 34 PPC objetivo
   { id:34, tag:'UE', type:'mcq',
     title:'La PPC (pesca) persigue sobre todo…',
     sub:'',
@@ -585,8 +527,6 @@ const QUESTIONS = [
     answer:'B',
     explain:'Sostenibilidad biológica, social y económica de la actividad pesquera.'
   },
-
-  // 35 España · valor en regadío
   { id:35, tag:'España', type:'mcq',
     title:'¿Qué grupo suele concentrar más valor en el regadío español?',
     sub:'',
@@ -598,8 +538,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'Frutas y hortalizas de regadío concentran gran parte del valor.'
   },
-
-  // 36 CYL · D.O. trampa
   { id:36, tag:'CYL', type:'mcq',
     title:'¿Cuál de las siguientes NO es una D.O. de Castilla y León?',
     sub:'',
@@ -611,8 +549,6 @@ const QUESTIONS = [
     answer:'C',
     explain:'“La Mancha” pertenece a Castilla-La Mancha, no a Castilla y León.'
   },
-
-  // 37 CYL · ganadería principal
   { id:37, tag:'CYL', type:'mcq',
     title:'En Castilla y León, ¿qué cabaña ganadera destaca especialmente?',
     sub:'',
@@ -624,8 +560,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'CYL está entre las primeras CCAA en ovino.'
   },
-
-  // 38 CYL · cultivo predominante
   { id:38, tag:'CYL', type:'mcq',
     title:'En la meseta de Castilla y León predomina…',
     sub:'',
@@ -637,8 +571,6 @@ const QUESTIONS = [
     answer:'A',
     explain:'El cereal de secano es el cultivo más extendido.'
   },
-
-  // 39 Riego · sistema más eficiente
   { id:39, tag:'Riego', type:'mcq',
     title:'¿Qué sistema suele ser más eficiente en uso de agua?',
     sub:'',
@@ -650,198 +582,13 @@ const QUESTIONS = [
     answer:'A',
     explain:'El goteo aplica el agua justo al sistema radicular.'
   },
-
-  // 40 Conservación suelo (short)
   { id:40, tag:'Suelo', type:'short',
     title:'Escribe una técnica para frenar la erosión en laderas.',
     sub:'1–3 palabras.',
     answer:['bancales','terrazas','terrazamiento'],
     explain:'El terrazamiento reduce la pendiente efectiva y la escorrentía.'
   }
-  
-/* ========= LÓGICA DEL TEST ========= */
-let idx = 0;
-const state = QUESTIONS.map(q => ({ id:q.id, user:null, correct:null }));
-
-const els = {
-  stLabel: document.getElementById('stLabel'),
-  stCount: document.getElementById('stCount'),
-  stBar:   document.getElementById('stBar'),
-  qTag:    document.getElementById('qTag'),
-  qTitle:  document.getElementById('qTitle'),
-  qSub:    document.getElementById('qSub'),
-  mcqBox:  document.getElementById('mcqBox'),
-  shortBox:document.getElementById('shortBox'),
-  shortInput:document.getElementById('shortInput'),
-  imgWrap: document.getElementById('imgWrap'),
-  imgCap:  document.getElementById('imgCap'),
-  perQFeedback: document.getElementById('perQFeedback'),
-  btnPrev: document.getElementById('btnPrev'),
-  btnCheck:document.getElementById('btnCheck'),
-  btnNext: document.getElementById('btnNext'),
-  resultCard: document.getElementById('resultCard'),
-  scorePct: document.getElementById('scorePct'),
-  scoreMsg: document.getElementById('scoreMsg'),
-  reviewList: document.getElementById('reviewList'),
-  qCard: document.getElementById('qCard'),
-  mediaCard: document.getElementById('mediaCard'),
-  placeholder: document.getElementById('placeholder'),
-  imgPlaceholder: document.getElementById('imgPlaceholder')
-};
-
-function render() {
-  const q = QUESTIONS[idx];
-  // progreso
-  els.stLabel.textContent = `Pregunta ${idx+1} de ${QUESTIONS.length}`;
-  els.stCount.textContent = `Respondidas: ${state.filter(s=>s.user!==null).length}/${QUESTIONS.length}`;
-  els.stBar.style.width = `${(idx)/(QUESTIONS.length)*100}%`;
-
-  // texto
-  els.qTag.textContent = q.tag;
-  els.qTitle.textContent = q.title;
-  els.qSub.textContent = q.sub || '';
-
-  // limpia
-  els.mcqBox.innerHTML = '';
-  els.shortInput.value = '';
-  els.perQFeedback.classList.add('hidden');
-  els.perQFeedback.textContent = '';
-
-  // media
-  els.imgWrap.innerHTML = '';
-  if(q.media){
-    if(q.media.kind==='img'){
-      const im = new Image(); im.src = q.media.src; im.alt = q.media.caption||'';
-      im.style.maxWidth='100%'; im.style.maxHeight='100%';
-      els.imgWrap.appendChild(im);
-    } else if(q.media.kind==='svg'){
-      els.imgWrap.innerHTML = q.media.html;
-    }
-    els.imgCap.textContent = q.media.caption || '';
-  } else {
-    els.imgWrap.innerHTML = document.getElementById('placeholder')?.outerHTML || '';
-    els.imgCap.textContent = '—';
-  }
-
-  // tipo
-  if(q.type==='mcq' || q.type==='image-mcq'){
-    els.mcqBox.classList.remove('hidden');
-    els.shortBox.classList.add('hidden');
-    const frag = document.createDocumentFragment();
-    q.options.forEach(op=>{
-      const div = document.createElement('label');
-      div.className = 'opt';
-      div.innerHTML = `<input type="radio" name="opt" value="${op.key}"><span><b>${op.key})</b> ${op.text}</span>`;
-      frag.appendChild(div);
-    });
-    els.mcqBox.appendChild(frag);
-    // restaura si ya respondió
-    const st = state[idx];
-    if(st.user){ const r = els.mcqBox.querySelector(`input[value="${st.user}"]`); if(r) r.checked = true; }
-  } else {
-    els.mcqBox.classList.add('hidden');
-    els.shortBox.classList.remove('hidden');
-    // restaura
-    const st = state[idx];
-    if(st.user){ els.shortInput.value = st.user; }
-  }
-
-  // botones
-  els.btnPrev.disabled = idx===0;
-  els.btnNext.disabled = idx>=QUESTIONS.length-1;
-  els.btnCheck.textContent = 'Comprobar';
-}
-render();
-
-function normalizeText(t){
-  return (t||'').toString().trim().toLowerCase()
-    .normalize('NFD').replace(/\p{Diacritic}/gu,''); // quita tildes
-}
-
-function checkCurrent(){
-  const q = QUESTIONS[idx];
-  let user = null;
-  if(q.type==='mcq' || q.type==='image-mcq'){
-    const sel = document.querySelector('input[name="opt"]:checked');
-    if(!sel){ els.perQFeedback.classList.remove('hidden'); els.perQFeedback.innerHTML = '<span class="warn">⚠</span> Selecciona una opción.'; return; }
-    user = sel.value;
-    const isOk = user===q.answer;
-    state[idx] = { id:q.id, user, correct:isOk };
-    els.perQFeedback.classList.remove('hidden');
-    els.perQFeedback.innerHTML = isOk ? `<span class="ok">✔ Correcto.</span> ${q.explain||''}` : `<span class="bad">✘ Incorrecto.</span> ${q.explain||''}`;
-  } else if(q.type==='short'){
-    user = normalizeText(els.shortInput.value);
-    if(!user){ els.perQFeedback.classList.remove('hidden'); els.perQFeedback.innerHTML = '<span class="warn">⚠</span> Escribe tu respuesta.'; return; }
-    const accepted = (Array.isArray(q.answer) ? q.answer : [q.answer]).map(normalizeText);
-    const isOk = accepted.includes(user);
-    state[idx] = { id:q.id, user:els.shortInput.value.trim(), correct:isOk };
-    els.perQFeedback.classList.remove('hidden');
-    els.perQFeedback.innerHTML = isOk ? `<span class="ok">✔ Correcto.</span> ${q.explain||''}` : `<span class="bad">✘ Incorrecto.</span> ${q.explain||''}`;
-  }
-  // avanza progreso suave
-  els.stBar.style.width = `${((idx+1)/QUESTIONS.length)*100}%`;
-  // cambia botón check
-  els.btnCheck.textContent = 'Repetir comprobación';
-}
-
-function nextQ(){ if(idx<QUESTIONS.length-1){ idx++; render(); } else { finish(); } }
-function prevQ(){ if(idx>0){ idx--; render(); } }
-
-function finish(){
-  // oculta tarjetas de preguntas y muestra resultados
-  document.getElementById('resultCard').classList.remove('hidden');
-  // calcula score
-  const answered = state.filter(s=>s.user!==null).length;
-  const correct = state.filter(s=>s.correct===true).length;
-  const pct = Math.round((correct/QUESTIONS.length)*100);
-  els.scorePct.textContent = `${pct}%`;
-  els.scoreMsg.textContent = answered<QUESTIONS.length
-    ? 'Has dejado preguntas sin responder.'
-    : (pct>=80 ? '¡Excelente!' : pct>=60 ? 'Bien, revisa lo fallado.' : 'Necesitas repasar.');
-
-  // listado de fallos
-  els.reviewList.innerHTML = '';
-  QUESTIONS.forEach((q,i)=>{
-    const st = state[i];
-    if(!st || st.correct===true) return;
-    const div = document.createElement('div');
-    div.className = 'item wrong';
-    const userTxt = (st.user===null ? '—' : (q.type==='mcq'||q.type==='image-mcq' ? st.user : `"${st.user}"`));
-    const rightTxt = (q.type==='mcq'||q.type==='image-mcq' ? q.answer : (Array.isArray(q.answer)? q.answer[0] : q.answer));
-    div.innerHTML = `<b>${i+1}. ${q.title}</b><br>
-      <span class="bad">Tu respuesta:</span> ${userTxt} · 
-      <span class="ok">Correcta:</span> ${rightTxt}<br>
-      <span class="muted">${q.explain||''}</span>`;
-    els.reviewList.appendChild(div);
-  });
-
-  // scroll a resultados
-  document.getElementById('resultCard').scrollIntoView({behavior:'smooth'});
-}
-
-els.btnCheck.addEventListener('click', checkCurrent);
-els.btnNext.addEventListener('click', ()=>{
-  // si última, finalizar
-  if(idx>=QUESTIONS.length-1){ finish(); } else { nextQ(); }
-});
-els.btnPrev.addEventListener('click', prevQ);
-document.getElementById('btnRetry').addEventListener('click', ()=>{
-  for(let i=0;i<state.length;i++) state[i]={id:QUESTIONS[i].id,user:null,correct:null};
-  idx=0; render();
-  document.getElementById('resultCard').classList.add('hidden');
-  window.scrollTo({top:0,behavior:'smooth'});
-});
-document.getElementById('btnScrollTop').addEventListener('click', ()=>{
-  window.scrollTo({top:0,behavior:'smooth'});
-});
-
-// atajos teclado (Enter = comprobar, Flechas = navegar)
-document.addEventListener('keydown', (e)=>{
-  const tag = (e.target.tagName||'').toLowerCase();
-  if(tag==='input' && e.key==='Enter'){ checkCurrent(); return; }
-  if(tag==='input') return;
-  if(e.key==='ArrowRight') nextQ();
-  if(e.key==='ArrowLeft') prevQ();
-});
+];
+/* --------- FIN PREGUNTAS --------- */
 </script>
-<!-- ====== FIN TEST ====== -->
+
