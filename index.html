@@ -17,7 +17,7 @@
   .opt input{accent-color:var(--brand); transform:translateY(3px)}
   .opt:hover{background:#102233}
   .short-wrap{display:flex; gap:10px; margin:14px 0}
-  .short-wrap input{flex:1; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.06); background:#0f1720; color:var(--ink); outline:none}
+  .short-wrap input{flex:1; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.06); background:#0f1720; color:#0ff; color:var(--ink); outline:none}
   .short-wrap input:focus{border-color:#1e4363}
   .imgbox{background:#0f1720; border:1px solid rgba(255,255,255,.06); border-radius:16px; height:240px; display:flex; align-items:center; justify-content:center; overflow:hidden}
   .imgbox img{max-width:100%; max-height:100%; display:block}
@@ -98,10 +98,13 @@
     </div>
   </div>
 </div>
+
 <script>
-/* ========= CONFIGURACIÓN DE PREGUNTAS ========= */
-const QUESTIONS = [
-  /* ---------- 1–20 (tus preguntas originales) ---------- */
+/* ===== CONFIG ===== */
+var EXAM_MODE = false;
+
+/* ===== PREGUNTAS (40) ===== */
+var QUESTIONS = [
   { id:1, tag:'Concepto', type:'mcq',
     title:'¿Qué actividades componen el sector primario?',
     sub:'Selecciona la opción más completa.',
@@ -179,17 +182,7 @@ const QUESTIONS = [
     answer:'A',
     media:{
       kind:'svg',
-      html:`<svg class="svgimg" viewBox="0 0 420 220">
-        <rect width="420" height="220" fill="#0b1622"/>
-        <g transform="translate(20,20)">
-          <rect x="0" y="0" width="380" height="160" fill="#19334a" stroke="#2a4e6d"/>
-          <rect x="10" y="10" width="360" height="30" fill="#2a5b80"/>
-          <rect x="10" y="50" width="360" height="30" fill="#285474"/>
-          <rect x="10" y="90" width="360" height="30" fill="#2a5b80"/>
-          <rect x="10" y="130" width="360" height="20" fill="#285474"/>
-        </g>
-        <text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Campos abiertos y extensos</text>
-      </svg>`,
+      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(20,20)"><rect x="0" y="0" width="380" height="160" fill="#19334a" stroke="#2a4e6d"></rect><rect x="10" y="10" width="360" height="30" fill="#2a5b80"></rect><rect x="10" y="50" width="360" height="30" fill="#285474"></rect><rect x="10" y="90" width="360" height="30" fill="#2a5b80"></rect><rect x="10" y="130" width="360" height="20" fill="#285474"></rect></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Campos abiertos y extensos</text></svg>',
       caption:'Franjas amplias sin cercas → Openfield.'
     },
     explain:'Openfield = campos abiertos, sin setos; hábitat concentrado.'
@@ -205,23 +198,7 @@ const QUESTIONS = [
     answer:'B',
     media:{
       kind:'svg',
-      html:`<svg class="svgimg" viewBox="0 0 420 220">
-        <rect width="420" height="220" fill="#0b1622"/>
-        <g transform="translate(22,22)">
-          <rect x="0" y="0" width="376" height="156" fill="#12283c" stroke="#2a4e6d"/>
-          <g fill="#214764" stroke="#3c7aa8" stroke-width="3">
-            <rect x="10" y="10" width="80" height="50"/>
-            <rect x="100" y="10" width="80" height="50"/>
-            <rect x="190" y="10" width="80" height="50"/>
-            <rect x="280" y="10" width="80" height="50"/>
-            <rect x="10" y="70" width="80" height="50"/>
-            <rect x="100" y="70" width="80" height="50"/>
-            <rect x="190" y="70" width="80" height="50"/>
-            <rect x="280" y="70" width="80" height="50"/>
-          </g>
-        </g>
-        <text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Parcelas cercadas con setos</text>
-      </svg>`,
+      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(22,22)"><rect x="0" y="0" width="376" height="156" fill="#12283c" stroke="#2a4e6d"></rect><g fill="#214764" stroke="#3c7aa8" stroke-width="3"><rect x="10" y="10" width="80" height="50"></rect><rect x="100" y="10" width="80" height="50"></rect><rect x="190" y="10" width="80" height="50"></rect><rect x="280" y="10" width="80" height="50"></rect><rect x="10" y="70" width="80" height="50"></rect><rect x="100" y="70" width="80" height="50"></rect><rect x="190" y="70" width="80" height="50"></rect><rect x="280" y="70" width="80" height="50"></rect></g></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Parcelas cercadas con setos</text></svg>',
       caption:'Parcelas cerradas + setos → Bocage.'
     },
     explain:'Bocage = mosaico de parcelas cerradas; hábitat disperso/mixto.'
@@ -326,20 +303,7 @@ const QUESTIONS = [
     answer:'B',
     media:{
       kind:'svg',
-      html:`<svg class="svgimg" viewBox="0 0 420 220">
-        <rect width="420" height="220" fill="#0b1622"/>
-        <g transform="translate(30,40)">
-          <rect x="0" y="80" width="360" height="30" fill="#204a68"/>
-          <rect x="0" y="40" width="360" height="8" fill="#2f7fb5" rx="4" ry="4"/>
-          <g fill="#6ed5ff">
-            <circle cx="40" cy="44" r="4"/><rect x="38" y="48" width="4" height="32"/>
-            <circle cx="120" cy="44" r="4"/><rect x="118" y="48" width="4" height="32"/>
-            <circle cx="200" cy="44" r="4"/><rect x="198" y="48" width="4" height="32"/>
-            <circle cx="280" cy="44" r="4"/><rect x="278" y="48" width="4" height="32"/>
-          </g>
-        </g>
-        <text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Aplicación de agua localizada al pie de la planta</text>
-      </svg>`,
+      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(30,40)"><rect x="0" y="80" width="360" height="30" fill="#204a68"></rect><rect x="0" y="40" width="360" height="8" fill="#2f7fb5" rx="4" ry="4"></rect><g fill="#6ed5ff"><circle cx="40" cy="44" r="4"></circle><rect x="38" y="48" width="4" height="32"></rect><circle cx="120" cy="44" r="4"></circle><rect x="118" y="48" width="4" height="32"></rect><circle cx="200" cy="44" r="4"></circle><rect x="198" y="48" width="4" height="32"></rect><circle cx="280" cy="44" r="4"></circle><rect x="278" y="48" width="4" height="32"></rect></g></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Aplicación de agua localizada al pie de la planta</text></svg>',
       caption:'Emisores puntuales → Riego por goteo.'
     },
     explain:'En el goteo, el agua cae en gotas localizadas, minimizando pérdidas.'
@@ -357,7 +321,7 @@ const QUESTIONS = [
     explain:'Cuotas, vedas y tallas mínimas son medidas clave.'
   },
 
-  /* ---------- 21–40 (nuevas preguntas) ---------- */
+  /* === 21–40 AÑADIDAS === */
   { id:21, tag:'Clima', type:'mcq',
     title:'En un clima árido, ¿qué problema aparece con más frecuencia?',
     sub:'',
@@ -391,18 +355,7 @@ const QUESTIONS = [
     answer:'A',
     media:{
       kind:'svg',
-      html:`<svg class="svgimg" viewBox="0 0 420 220">
-        <rect width="420" height="220" fill="#0b1622"/>
-        <g transform="translate(30,30)">
-          <polygon points="0,140 360,60 360,160 0,160" fill="#17324a"/>
-          <g fill="#275676" stroke="#3b7aa5">
-            <rect x="10" y="120" width="320" height="10"/>
-            <rect x="30" y="100" width="300" height="10"/>
-            <rect x="70" y="80"  width="260" height="10"/>
-          </g>
-        </g>
-        <text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Plataformas horizontales en ladera</text>
-      </svg>`,
+      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(30,30)"><polygon points="0,140 360,60 360,160 0,160" fill="#17324a"></polygon><g fill="#275676" stroke="#3b7aa5"><rect x="10" y="120" width="320" height="10"></rect><rect x="30" y="100" width="300" height="10"></rect><rect x="70" y="80" width="260" height="10"></rect></g></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Plataformas horizontales en ladera</text></svg>',
       caption:'Terrazas o bancales para salvar la pendiente.'
     },
     explain:'Los bancales reducen pendiente y erosión, facilitando el cultivo.'
@@ -485,16 +438,7 @@ const QUESTIONS = [
     answer:'C',
     media:{
       kind:'svg',
-      html:`<svg class="svgimg" viewBox="0 0 420 220">
-        <rect width="420" height="220" fill="#0b1622"/>
-        <g transform="translate(30,90)">
-          <rect x="0" y="40" width="360" height="4" fill="#1b3a56"/>
-          <polygon points="40,40 120,20 260,20 300,40" fill="#215074"/>
-          <rect x="160" y="0" width="40" height="18" fill="#2e7fb5"/>
-          <circle cx="260" cy="34" r="8" fill="#6ed5ff"/>
-        </g>
-        <text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Buque grande, navegación de larga distancia</text>
-      </svg>`,
+      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(30,90)"><rect x="0" y="40" width="360" height="4" fill="#1b3a56"></rect><polygon points="40,40 120,20 260,20 300,40" fill="#215074"></polygon><rect x="160" y="0" width="40" height="18" fill="#2e7fb5"></rect><circle cx="260" cy="34" r="8" fill="#6ed5ff"></circle></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Buque grande, navegación de larga distancia</text></svg>',
       caption:'Flota de gran tamaño, campañas largas → pesca de altura.'
     },
     explain:'Altura = altamar con buques grandes y largas mareas.'
@@ -589,6 +533,239 @@ const QUESTIONS = [
     explain:'El terrazamiento reduce la pendiente efectiva y la escorrentía.'
   }
 ];
-/* --------- FIN PREGUNTAS --------- */
-</script>
 
+/* ===== LÓGICA ROBUSTA PARA BLOGGER ===== */
+(function(){
+  function init(){
+    var els = {
+      stLabel: document.getElementById('stLabel'),
+      stCount: document.getElementById('stCount'),
+      stBar:   document.getElementById('stBar'),
+      qTag:    document.getElementById('qTag'),
+      qTitle:  document.getElementById('qTitle'),
+      qSub:    document.getElementById('qSub'),
+      mcqBox:  document.getElementById('mcqBox'),
+      shortBox:document.getElementById('shortBox'),
+      shortInput:document.getElementById('shortInput'),
+      imgWrap: document.getElementById('imgWrap'),
+      imgCap:  document.getElementById('imgCap'),
+      perQFeedback: document.getElementById('perQFeedback'),
+      btnPrev: document.getElementById('btnPrev'),
+      btnCheck:document.getElementById('btnCheck'),
+      btnNext: document.getElementById('btnNext'),
+      resultCard: document.getElementById('resultCard'),
+      scorePct: document.getElementById('scorePct'),
+      scoreMsg: document.getElementById('scoreMsg'),
+      reviewList: document.getElementById('reviewList'),
+      placeholder: document.getElementById('placeholder')
+    };
+
+    var idx = 0;
+    var state = QUESTIONS.map(function(q){ return { id:q.id, user:null, correct:null }; });
+
+    function normalizeText(t){
+      return String(t || '')
+        .trim()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'');
+    }
+
+    function render(){
+      var q = QUESTIONS[idx];
+
+      // Progreso
+      els.stLabel.textContent = 'Pregunta ' + (idx+1) + ' de ' + QUESTIONS.length;
+      var answered = 0;
+      for(var k=0;k<state.length;k++){ if(state[k].user!==null) answered++; }
+      els.stCount.textContent = 'Respondidas: ' + answered + '/' + QUESTIONS.length;
+      els.stBar.style.width = ((idx)/QUESTIONS.length*100) + '%';
+
+      // Texto
+      els.qTag.textContent = q.tag || 'Pregunta';
+      els.qTitle.textContent = q.title || '';
+      els.qSub.textContent = q.sub || '';
+
+      // Limpia
+      els.mcqBox.innerHTML = '';
+      els.shortInput.value = '';
+      els.perQFeedback.classList.add('hidden');
+      els.perQFeedback.textContent = '';
+
+      // Media
+      els.imgWrap.innerHTML = '';
+      if(q.media){
+        if(q.media.kind==='img'){
+          var im = new Image(); im.src = q.media.src; im.alt = q.media.caption||'';
+          im.style.maxWidth='100%'; im.style.maxHeight='100%';
+          els.imgWrap.appendChild(im);
+        } else if(q.media.kind==='svg'){
+          els.imgWrap.innerHTML = q.media.html;
+        }
+        els.imgCap.textContent = q.media.caption || '';
+      } else {
+        if(els.placeholder){ els.imgWrap.innerHTML = els.placeholder.outerHTML; }
+        els.imgCap.textContent = '—';
+      }
+
+      // Tipo
+      if(q.type==='mcq' || q.type==='image-mcq'){
+        els.mcqBox.classList.remove('hidden');
+        els.shortBox.classList.add('hidden');
+        var frag = document.createDocumentFragment();
+        for(var i=0;i<q.options.length;i++){
+          var op = q.options[i];
+          var div = document.createElement('label');
+          div.className = 'opt';
+          div.innerHTML = '<input type="radio" name="opt" value="'+op.key+'"><span><b>'+op.key+')</b> '+op.text+'</span>';
+          frag.appendChild(div);
+        }
+        els.mcqBox.appendChild(frag);
+        var st = state[idx];
+        if(st.user){
+          var r = els.mcqBox.querySelector('input[value="'+st.user+'"]');
+          if(r) r.checked = true;
+        }
+      } else {
+        els.mcqBox.classList.add('hidden');
+        els.shortBox.classList.remove('hidden');
+        var st2 = state[idx];
+        if(st2.user){ els.shortInput.value = st2.user; }
+      }
+
+      // Botones
+      els.btnPrev.disabled = (idx===0);
+      els.btnNext.disabled = (idx>=QUESTIONS.length-1);
+      els.btnCheck.textContent = 'Comprobar';
+    }
+
+    function checkCurrent(){
+      var q = QUESTIONS[idx];
+      var user = null;
+
+      if(q.type==='mcq' || q.type==='image-mcq'){
+        var sel = document.querySelector('input[name="opt"]:checked');
+        if(!sel){
+          if(!EXAM_MODE){
+            els.perQFeedback.classList.remove('hidden');
+            els.perQFeedback.innerHTML = '<span class="warn">⚠</span> Selecciona una opción.';
+          }
+          return;
+        }
+        user = sel.value;
+        var isOk = (user===q.answer);
+        state[idx] = { id:q.id, user:user, correct:isOk };
+        if(!EXAM_MODE){
+          els.perQFeedback.classList.remove('hidden');
+          els.perQFeedback.innerHTML = isOk
+            ? '<span class="ok">✔ Correcto.</span> ' + (q.explain||'')
+            : '<span class="bad">✘ Incorrecto.</span> ' + (q.explain||'');
+        }
+      } else { // short
+        user = normalizeText(els.shortInput.value);
+        if(!user){
+          if(!EXAM_MODE){
+            els.perQFeedback.classList.remove('hidden');
+            els.perQFeedback.innerHTML = '<span class="warn">⚠</span> Escribe tu respuesta.';
+          }
+          return;
+        }
+        var accepted = (Object.prototype.toString.call(q.answer)==='[object Array]' ? q.answer : [q.answer]);
+        var ok = false;
+        var nuser = normalizeText(user);
+        for(var j=0;j<accepted.length;j++){
+          if(normalizeText(accepted[j])===nuser){ ok = true; break; }
+        }
+        state[idx] = { id:q.id, user:els.shortInput.value.trim(), correct:ok };
+        if(!EXAM_MODE){
+          els.perQFeedback.classList.remove('hidden');
+          els.perQFeedback.innerHTML = ok
+            ? '<span class="ok">✔ Correcto.</span> ' + (q.explain||'')
+            : '<span class="bad">✘ Incorrecto.</span> ' + (q.explain||'');
+        }
+      }
+
+      // Progreso
+      els.stBar.style.width = (((idx+1)/QUESTIONS.length)*100) + '%';
+      els.btnCheck.textContent = 'Comprobar';
+    }
+
+    function nextQ(){
+      if(idx<QUESTIONS.length-1){ idx++; render(); }
+      else { finish(); }
+    }
+    function prevQ(){ if(idx>0){ idx--; render(); } }
+
+    function finish(){
+      var resultCard = document.getElementById('resultCard');
+      resultCard.classList.remove('hidden');
+
+      var answered = 0, correct = 0;
+      for(var i=0;i<state.length;i++){
+        if(state[i].user!==null){ answered++; }
+        if(state[i].correct===true){ correct++; }
+      }
+      var pct = Math.round((correct/QUESTIONS.length)*100);
+      els.scorePct.textContent = pct + '%';
+      els.scoreMsg.textContent = answered<QUESTIONS.length
+        ? 'Has dejado preguntas sin responder.'
+        : (pct>=80 ? '¡Excelente!' : (pct>=60 ? 'Bien, revisa lo fallado.' : 'Necesitas repasar.'));
+
+      els.reviewList.innerHTML = '';
+      for(var r=0;r<QUESTIONS.length;r++){
+        var q = QUESTIONS[r]; var st = state[r];
+        if(!st || st.correct===true) continue;
+        var div = document.createElement('div');
+        div.className = 'item wrong';
+        var userTxt = (st.user===null ? '—' : (q.type==='mcq'||q.type==='image-mcq' ? st.user : '"' + st.user + '"'));
+        var rightTxt = (q.type==='mcq'||q.type==='image-mcq' ? q.answer : (Object.prototype.toString.call(q.answer)==='[object Array]'? q.answer[0] : q.answer));
+        div.innerHTML = '<b>'+(r+1)+'. '+q.title+'</b><br>' +
+          '<span class="bad">Tu respuesta:</span> '+userTxt+' · '+
+          '<span class="ok">Correcta:</span> '+rightTxt+'<br>'+
+          '<span class="muted">'+(q.explain||'')+'</span>';
+        els.reviewList.appendChild(div);
+      }
+      resultCard.scrollIntoView({behavior:'smooth'});
+    }
+
+    // Eventos
+    els.btnCheck.addEventListener('click', checkCurrent);
+    els.btnNext.addEventListener('click', function(){ if(idx>=QUESTIONS.length-1){ finish(); } else { nextQ(); } });
+    els.btnPrev.addEventListener('click', prevQ);
+
+    var btnRetry = document.getElementById('btnRetry');
+    if(btnRetry){
+      btnRetry.addEventListener('click', function(){
+        for(var i=0;i<state.length;i++){ state[i] = {id:QUESTIONS[i].id,user:null,correct:null}; }
+        idx = 0;
+        document.getElementById('resultCard').classList.add('hidden');
+        render();
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    }
+    var btnScrollTop = document.getElementById('btnScrollTop');
+    if(btnScrollTop){
+      btnScrollTop.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    }
+
+    document.addEventListener('keydown', function(e){
+      var tag = (e.target.tagName||'').toLowerCase();
+      if(tag==='input' && e.key==='Enter'){ checkCurrent(); return; }
+      if(tag==='input') return;
+      if(e.key==='ArrowRight'){ nextQ(); }
+      if(e.key==='ArrowLeft'){ prevQ(); }
+    });
+
+    // Primera pregunta
+    render();
+  }
+
+  // Inicialización robusta (funciona aunque Blogger ya haya cargado el DOM)
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- ====== FIN TEST ====== -->
