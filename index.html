@@ -100,10 +100,12 @@
 </div>
 
 <script>
+
+/* ===== PREGUNTAS (40) ===== */
 /* ===== CONFIG ===== */
 var EXAM_MODE = false;
 
-/* ===== PREGUNTAS (40) ===== */
+/* ===== PREGUNTAS (40) CON IMÁGENES ===== */
 var QUESTIONS = [
   { id:1, tag:'Concepto', type:'mcq',
     title:'¿Qué actividades componen el sector primario?',
@@ -114,7 +116,12 @@ var QUESTIONS = [
       {key:'C', text:'Industria agroalimentaria y servicios rurales'}
     ],
     answer:'B',
-    explain:'El sector primario obtiene recursos directamente de la naturaleza: agricultura, ganadería, pesca y aprovechamientos forestales.'
+    explain:'El sector primario obtiene recursos directamente de la naturaleza: agricultura, ganadería, pesca y aprovechamientos forestales.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Cereal_crop_behind_Sutton_Farm_-_geograph.org.uk_-_5034452.jpg',
+      caption:'Gran campo de cereal que representa la agricultura como actividad básica del sector primario.'
+    }
   },
   { id:2, tag:'Tendencias', type:'mcq',
     title:'En la mayoría de países desarrollados, el sector primario…',
@@ -125,7 +132,12 @@ var QUESTIONS = [
       {key:'C', text:'Mantiene empleo estable y productividad constante'}
     ],
     answer:'B',
-    explain:'Con la mecanización y la tecnología, baja el empleo relativo y sube la productividad.'
+    explain:'Con la mecanización y la tecnología, baja el empleo relativo y sube la productividad.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Tractor_at_work_on_a_field_in_Idaho_(cropped).jpg',
+      caption:'Tractor moderno trabajando un gran campo: mucha mecanización y poca mano de obra.'
+    }
   },
   { id:3, tag:'Físicos', type:'mcq',
     title:'¿Cuál NO es un límite climático típico para la agricultura?',
@@ -136,7 +148,12 @@ var QUESTIONS = [
       {key:'C', text:'Ligeras brisas costeras'}
     ],
     answer:'C',
-    explain:'Frío/calor extremos y aridez limitan; las brisas no son un freno general.'
+    explain:'Frío/calor extremos y aridez limitan; las brisas no son un freno general.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/A_dry_field_-_geograph.org.uk_-_2462598.jpg',
+      caption:'Campo muy seco que ilustra cómo la aridez limita la agricultura.'
+    }
   },
   { id:4, tag:'Físicos', type:'mcq',
     title:'El relieve más favorable para el cultivo extensivo es…',
@@ -147,7 +164,12 @@ var QUESTIONS = [
       {key:'C', text:'Cima montañosa'}
     ],
     answer:'A',
-    explain:'Las llanuras/pedientes suaves facilitan mecanización y rendimiento.'
+    explain:'Las llanuras/pedientes suaves facilitan mecanización y rendimiento.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Cereal_crop_behind_Sutton_Farm_-_geograph.org.uk_-_5034452.jpg',
+      caption:'Llanura cerealista amplia, ideal para agricultura extensiva mecanizada.'
+    }
   },
   { id:5, tag:'Sistemas', type:'mcq',
     title:'El regadío por goteo se caracteriza por…',
@@ -158,7 +180,12 @@ var QUESTIONS = [
       {key:'C', text:'Aspersión semejante a la lluvia'}
     ],
     answer:'A',
-    explain:'El goteo aplica agua directamente al sistema radicular.'
+    explain:'El goteo aplica agua directamente al sistema radicular.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Drip_irrigation.jpg',
+      caption:'Sistema de riego por goteo con tuberías y emisores junto a las plantas.'
+    }
   },
   { id:6, tag:'Sistemas', type:'mcq',
     title:'El policultivo frente al monocultivo tiende a…',
@@ -169,10 +196,15 @@ var QUESTIONS = [
       {key:'C', text:'Exigir una única cosecha y maquinaria especializada'}
     ],
     answer:'A',
-    explain:'Diversificar reduce riesgos de plagas/precios.'
+    explain:'Diversificar reduce riesgos de plagas/precios.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Desert_agriculture_(4486214805).jpg',
+      caption:'Parcela con distintas líneas de cultivo que ilustran el policultivo.'
+    }
   },
   { id:7, tag:'Paisaje', type:'image-mcq',
-    title:'Observa el esquema y elige el paisaje agrario representado.',
+    title:'Observa la imagen y elige el paisaje agrario representado.',
     sub:'Parcelas abiertas o cerradas.',
     options:[
       {key:'A', text:'Openfield'},
@@ -180,12 +212,12 @@ var QUESTIONS = [
       {key:'C', text:'Latifundio de plantación'}
     ],
     answer:'A',
+    explain:'Openfield = campos abiertos, sin setos; hábitat concentrado.',
     media:{
-      kind:'svg',
-      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(20,20)"><rect x="0" y="0" width="380" height="160" fill="#19334a" stroke="#2a4e6d"></rect><rect x="10" y="10" width="360" height="30" fill="#2a5b80"></rect><rect x="10" y="50" width="360" height="30" fill="#285474"></rect><rect x="10" y="90" width="360" height="30" fill="#2a5b80"></rect><rect x="10" y="130" width="360" height="20" fill="#285474"></rect></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Campos abiertos y extensos</text></svg>',
-      caption:'Franjas amplias sin cercas → Openfield.'
-    },
-    explain:'Openfield = campos abiertos, sin setos; hábitat concentrado.'
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Cereal_crop_behind_Sutton_Farm_-_geograph.org.uk_-_5034452.jpg',
+      caption:'Grandes campos abiertos sin cercas visibles: paisaje openfield.'
+    }
   },
   { id:8, tag:'Paisaje', type:'image-mcq',
     title:'¿Qué paisaje muestran los setos y parcelas cerradas?',
@@ -196,12 +228,12 @@ var QUESTIONS = [
       {key:'C', text:'Openfield'}
     ],
     answer:'B',
+    explain:'Bocage = mosaico de parcelas cerradas; hábitat disperso/mixto.',
     media:{
-      kind:'svg',
-      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(22,22)"><rect x="0" y="0" width="376" height="156" fill="#12283c" stroke="#2a4e6d"></rect><g fill="#214764" stroke="#3c7aa8" stroke-width="3"><rect x="10" y="10" width="80" height="50"></rect><rect x="100" y="10" width="80" height="50"></rect><rect x="190" y="10" width="80" height="50"></rect><rect x="280" y="10" width="80" height="50"></rect><rect x="10" y="70" width="80" height="50"></rect><rect x="100" y="70" width="80" height="50"></rect><rect x="190" y="70" width="80" height="50"></rect><rect x="280" y="70" width="80" height="50"></rect></g></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Parcelas cercadas con setos</text></svg>',
-      caption:'Parcelas cerradas + setos → Bocage.'
-    },
-    explain:'Bocage = mosaico de parcelas cerradas; hábitat disperso/mixto.'
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Bocage_landscape_extending_west_of_Rhiw_-_geograph.org.uk_-_617345.jpg',
+      caption:'Paisaje bocage con pequeñas parcelas separadas por setos.'
+    }
   },
   { id:9, tag:'Países', type:'mcq',
     title:'Una característica típica de la agricultura en países desarrollados es…',
@@ -212,7 +244,12 @@ var QUESTIONS = [
       {key:'C', text:'Rotación de cultivos obligatoria en todo el país'}
     ],
     answer:'B',
-    explain:'Alta mecanización, biotecnología y especialización.'
+    explain:'Alta mecanización, biotecnología y especialización.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Tractor_at_work_on_a_field_in_Idaho_(cropped).jpg',
+      caption:'Maquinaria moderna trabajando una explotación especializada.'
+    }
   },
   { id:10, tag:'Países', type:'mcq',
     title:'La agricultura de subsistencia suele…',
@@ -223,7 +260,12 @@ var QUESTIONS = [
       {key:'C', text:'Destinarse por completo a la exportación'}
     ],
     answer:'A',
-    explain:'Pequeñas explotaciones, policultivo, técnicas tradicionales.'
+    explain:'Pequeñas explotaciones, policultivo, técnicas tradicionales.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Desert_agriculture_(4486214805).jpg',
+      caption:'Pequeñas parcelas cultivadas con varios cultivos, típicas de subsistencia.'
+    }
   },
   { id:11, tag:'Plantaciones', type:'mcq',
     title:'Una plantación típica se orienta a…',
@@ -234,7 +276,12 @@ var QUESTIONS = [
       {key:'C', text:'Uso exclusivo de barbecho largo'}
     ],
     answer:'B',
-    explain:'Grandes fincas, monocultivo, capital y mano de obra intensiva.'
+    explain:'Grandes fincas, monocultivo, capital y mano de obra intensiva.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Desert_agriculture_(4486214805).jpg',
+      caption:'Gran finca con cultivos alineados orientados al mercado.'
+    }
   },
   { id:12, tag:'Ganadería', type:'mcq',
     title:'La ganadería extensiva se asocia a…',
@@ -245,7 +292,12 @@ var QUESTIONS = [
       {key:'C', text:'Sistemas cerrados de ciclo corto industrial'}
     ],
     answer:'B',
-    explain:'Aprovecha pastos, menor densidad, ritmos más largos.'
+    explain:'Aprovecha pastos, menor densidad, ritmos más largos.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Cattle_grazing_in_green_pastures_-_geograph.org.uk_-_2428388.jpg',
+      caption:'Ganado pastando en prados naturales, típico de la ganadería extensiva.'
+    }
   },
   { id:13, tag:'Pesca', type:'mcq',
     title:'Una medida para evitar la sobrepesca es…',
@@ -256,7 +308,12 @@ var QUESTIONS = [
       {key:'C', text:'Aumentar el tamaño de las redes'}
     ],
     answer:'B',
-    explain:'Cuotas, vedas y tallas mínimas son herramientas clave.'
+    explain:'Cuotas, vedas y tallas mínimas son herramientas clave.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Fishing_boats_in_port_of_Vigo.jpg',
+      caption:'Barcos pesqueros en puerto, sujetos a cuotas y regulaciones.'
+    }
   },
   { id:14, tag:'UE', type:'mcq',
     title:'La PAC busca principalmente…',
@@ -267,7 +324,12 @@ var QUESTIONS = [
       {key:'C', text:'Sustituir toda la ganadería por acuicultura'}
     ],
     answer:'B',
-    explain:'Combina competitividad con objetivos ambientales y sociales.'
+    explain:'Combina competitividad con objetivos ambientales y sociales.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Olive-Anda.png',
+      caption:'Mapa del olivar andaluz, ejemplo de cultivo muy vinculado a la PAC.'
+    }
   },
   { id:15, tag:'España', type:'mcq',
     title:'¿Qué cultivo sitúa a España como líder mundial?',
@@ -278,19 +340,34 @@ var QUESTIONS = [
       {key:'C', text:'Soja'}
     ],
     answer:'A',
-    explain:'España destaca por el aceite de oliva.'
+    explain:'España destaca por el aceite de oliva.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Oliviers_Andalousie.JPG',
+      caption:'Olivar en Andalucía, símbolo de la producción de aceite de oliva.'
+    }
   },
   { id:16, tag:'CYL', type:'short',
     title:'Escribe la especie más representativa de acuicultura continental en Castilla y León.',
     sub:'Una o dos palabras.',
     answer:['trucha','trucha arco iris'],
-    explain:'La trucha (arco iris) es la referencia de la acuicultura continental en CYL.'
+    explain:'La trucha (arco iris) es la referencia de la acuicultura continental en CYL.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Rainbow_trout_fish_farm.jpg',
+      caption:'Piscifactoría de trucha arco iris, típica de la acuicultura continental.'
+    }
   },
   { id:17, tag:'CYL', type:'short',
     title:'Indica una D.O. vitivinícola destacada de Castilla y León.',
     sub:'Una o dos palabras (ejemplos válidos).',
     answer:['ribera del duero','rueda','toro','bierzo','cigales','arribes','tierra de león','tierras de zamora'],
-    explain:'Ejemplos: Ribera del Duero, Rueda, Toro, Bierzo, Cigales…'
+    explain:'Ejemplos: Ribera del Duero, Rueda, Toro, Bierzo, Cigales…',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Vi%C3%B1edos_Bodega_Vi%C3%B1a_Sastre_-_Hermanos_Sastre_Ribera_del_Duero.JPG',
+      caption:'Viñedos en la D.O. Ribera del Duero, una de las más emblemáticas de Castilla y León.'
+    }
   },
   { id:18, tag:'Riego', type:'image-mcq',
     title:'Observa el esquema de riego y selecciona el sistema representado.',
@@ -301,27 +378,36 @@ var QUESTIONS = [
       {key:'C', text:'Inundación'}
     ],
     answer:'B',
+    explain:'En el goteo, el agua cae en gotas localizadas, minimizando pérdidas.',
     media:{
-      kind:'svg',
-      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(30,40)"><rect x="0" y="80" width="360" height="30" fill="#204a68"></rect><rect x="0" y="40" width="360" height="8" fill="#2f7fb5" rx="4" ry="4"></rect><g fill="#6ed5ff"><circle cx="40" cy="44" r="4"></circle><rect x="38" y="48" width="4" height="32"></rect><circle cx="120" cy="44" r="4"></circle><rect x="118" y="48" width="4" height="32"></rect><circle cx="200" cy="44" r="4"></circle><rect x="198" y="48" width="4" height="32"></rect><circle cx="280" cy="44" r="4"></circle><rect x="278" y="48" width="4" height="32"></rect></g></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Aplicación de agua localizada al pie de la planta</text></svg>',
-      caption:'Emisores puntuales → Riego por goteo.'
-    },
-    explain:'En el goteo, el agua cae en gotas localizadas, minimizando pérdidas.'
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Drip_irrigation.jpg',
+      caption:'Riego localizado por goteo, con agua aplicada al pie de cada planta.'
+    }
   },
   { id:19, tag:'Ganadería', type:'short',
     title:'Escribe el término: cría con estabulación y piensos para alta productividad.',
     sub:'Una o dos palabras.',
     answer:['ganadería intensiva','intensiva'],
-    explain:'Ganadería intensiva o industrial.'
+    explain:'Ganadería intensiva o industrial.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Intensive_pig_farming.jpg',
+      caption:'Nave de cría intensiva con animales estabulados y piensos compuestos.'
+    }
   },
   { id:20, tag:'Pesca', type:'short',
     title:'Escribe una medida de gestión pesquera para proteger recursos.',
     sub:'1–3 palabras (ejemplos).',
     answer:['cuotas','vedas','tallas mínimas','talla mínima'],
-    explain:'Cuotas, vedas y tallas mínimas son medidas clave.'
+    explain:'Cuotas, vedas y tallas mínimas son medidas clave.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Fishing_boats_in_port_of_Vigo.jpg',
+      caption:'Flota pesquera sujeta a regulaciones de gestión y conservación.'
+    }
   },
 
-  /* === 21–40 AÑADIDAS === */
   { id:21, tag:'Clima', type:'mcq',
     title:'En un clima árido, ¿qué problema aparece con más frecuencia?',
     sub:'',
@@ -331,7 +417,12 @@ var QUESTIONS = [
       {key:'C', text:'Heladas constantes todo el año'}
     ],
     answer:'B',
-    explain:'La aridez implica precipitaciones escasas e irregulares → estrés hídrico.'
+    explain:'La aridez implica precipitaciones escasas e irregulares → estrés hídrico.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/A_dry_field_-_geograph.org.uk_-_2462598.jpg',
+      caption:'Suelo agrietado por la sequía, típico de climas áridos.'
+    }
   },
   { id:22, tag:'Suelo', type:'mcq',
     title:'¿Qué práctica mejora el suelo sin fertilizantes de síntesis?',
@@ -342,10 +433,15 @@ var QUESTIONS = [
       {key:'C', text:'Aportar sólo NPK químico'}
     ],
     answer:'A',
-    explain:'El compost/abono orgánico mejora estructura, microbiota y nutrientes.'
+    explain:'El compost/abono orgánico mejora estructura, microbiota y nutrientes.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Compost_bin.jpg',
+      caption:'Montón de compostaje, ejemplo de mejora del suelo con materia orgánica.'
+    }
   },
   { id:23, tag:'Relieve', type:'image-mcq',
-    title:'Observa el esquema. ¿Qué técnica permite cultivar laderas?',
+    title:'Observa la imagen. ¿Qué técnica permite cultivar laderas?',
     sub:'',
     options:[
       {key:'A', text:'Bancales o terrazas'},
@@ -353,12 +449,12 @@ var QUESTIONS = [
       {key:'C', text:'Barbecho largo'}
     ],
     answer:'A',
+    explain:'Los bancales reducen pendiente y erosión, facilitando el cultivo.',
     media:{
-      kind:'svg',
-      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(30,30)"><polygon points="0,140 360,60 360,160 0,160" fill="#17324a"></polygon><g fill="#275676" stroke="#3b7aa5"><rect x="10" y="120" width="320" height="10"></rect><rect x="30" y="100" width="300" height="10"></rect><rect x="70" y="80" width="260" height="10"></rect></g></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Plataformas horizontales en ladera</text></svg>',
-      caption:'Terrazas o bancales para salvar la pendiente.'
-    },
-    explain:'Los bancales reducen pendiente y erosión, facilitando el cultivo.'
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Terraced_fields_Sa_Pa_Vietnam.JPG',
+      caption:'Laderas transformadas en terrazas de cultivo para reducir la erosión.'
+    }
   },
   { id:24, tag:'Agua', type:'mcq',
     title:'¿Qué ventaja típica presenta el secano frente al regadío?',
@@ -369,13 +465,23 @@ var QUESTIONS = [
       {key:'C', text:'Independencia total del clima'}
     ],
     answer:'A',
-    explain:'El secano usa la lluvia; consume menos agua, aunque rinde menos.'
+    explain:'El secano usa la lluvia; consume menos agua, aunque rinde menos.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Cereal_crop_behind_Sutton_Farm_-_geograph.org.uk_-_5034452.jpg',
+      caption:'Cultivos de secano dependientes de la lluvia.'
+    }
   },
   { id:25, tag:'Paisaje', type:'short',
     title:'Explotación agraria de gran tamaño: escribe el término.',
     sub:'Una palabra.',
     answer:['latifundio'],
-    explain:'Latifundio = gran propiedad; minifundio = pequeña.'
+    explain:'Latifundio = gran propiedad; minifundio = pequeña.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Cereal_crop_behind_Sutton_Farm_-_geograph.org.uk_-_5034452.jpg',
+      caption:'Gran extensión de cultivo continua, ejemplo de gran explotación.'
+    }
   },
   { id:26, tag:'Sistemas', type:'mcq',
     title:'La rotación de cultivos ayuda principalmente a…',
@@ -386,13 +492,23 @@ var QUESTIONS = [
       {key:'C', text:'Gastar más agua y químicos'}
     ],
     answer:'A',
-    explain:'Alternar cultivos rompe ciclos de plagas y equilibra nutrientes.'
+    explain:'Alternar cultivos rompe ciclos de plagas y equilibra nutrientes.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Crop_rotation_on_the_Kellogg_Farm.jpg',
+      caption:'Parcelas con diferentes cultivos como ejemplo de rotación.'
+    }
   },
   { id:27, tag:'Ecológica', type:'short',
     title:'Escribe el término: producción sin síntesis química y con respeto ambiental.',
     sub:'1–2 palabras.',
     answer:['agricultura ecológica','agricultura orgánica','ecológica','orgánica'],
-    explain:'La agricultura ecológica prescinde de síntesis química y OMG.'
+    explain:'La agricultura ecológica prescinde de síntesis química y OMG.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Organic_farming_in_West_Virginia.jpg',
+      caption:'Huerto manejado con criterios ecológicos.'
+    }
   },
   { id:28, tag:'Países', type:'mcq',
     title:'El arroz monzónico se caracteriza por…',
@@ -403,7 +519,12 @@ var QUESTIONS = [
       {key:'C', text:'Cultivo en invernadero con goteo'}
     ],
     answer:'A',
-    explain:'Es un cultivo irrigado tradicional con alta demanda laboral.'
+    explain:'Es un cultivo irrigado tradicional con alta demanda laboral.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Green_rice_field_during_the_monsoon.jpg',
+      caption:'Arrozal inundado durante el monzón en Asia.'
+    }
   },
   { id:29, tag:'Ganadería', type:'mcq',
     title:'¿Qué impacto ambiental puede asociarse a la ganadería intensiva?',
@@ -414,7 +535,12 @@ var QUESTIONS = [
       {key:'C', text:'Aumento de biodiversidad en setos'}
     ],
     answer:'A',
-    explain:'Purines, consumo de agua y emisiones son retos de la intensiva.'
+    explain:'Purines, consumo de agua y emisiones son retos de la intensiva.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Intensive_pig_farming.jpg',
+      caption:'Instalación de ganadería intensiva con elevada concentración de animales.'
+    }
   },
   { id:30, tag:'Ganadería', type:'mcq',
     title:'Una medida relacionada con el bienestar animal es…',
@@ -425,10 +551,15 @@ var QUESTIONS = [
       {key:'C', text:'Suprimir agua de bebida'}
     ],
     answer:'B',
-    explain:'Espacio, ventilación, manejo y salud son claves.'
+    explain:'Espacio, ventilación, manejo y salud son claves.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Cows_in_modern_barn.jpg',
+      caption:'Vacas en establo amplio y bien ventilado, ejemplo de mejora en bienestar animal.'
+    }
   },
   { id:31, tag:'Pesca', type:'image-mcq',
-    title:'Observa el esquema del buque. ¿Qué tipo de pesca es?',
+    title:'Observa la imagen del buque. ¿Qué tipo de pesca es?',
     sub:'',
     options:[
       {key:'A', text:'Litoral (artesanal)'},
@@ -436,12 +567,12 @@ var QUESTIONS = [
       {key:'C', text:'Altura (altamar)'}
     ],
     answer:'C',
+    explain:'Altura = altamar con buques grandes y largas mareas.',
     media:{
-      kind:'svg',
-      html:'<svg class="svgimg" viewBox="0 0 420 220"><rect width="420" height="220" fill="#0b1622"></rect><g transform="translate(30,90)"><rect x="0" y="40" width="360" height="4" fill="#1b3a56"></rect><polygon points="40,40 120,20 260,20 300,40" fill="#215074"></polygon><rect x="160" y="0" width="40" height="18" fill="#2e7fb5"></rect><circle cx="260" cy="34" r="8" fill="#6ed5ff"></circle></g><text x="50%" y="205" fill="#9bb6d3" font-size="12" text-anchor="middle" font-family="Inter">Buque grande, navegación de larga distancia</text></svg>',
-      caption:'Flota de gran tamaño, campañas largas → pesca de altura.'
-    },
-    explain:'Altura = altamar con buques grandes y largas mareas.'
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/FV_Atlantic_Dawn_Giant_Trawler.png',
+      caption:'Gran arrastrero de altura que faena en mares lejanos.'
+    }
   },
   { id:32, tag:'Acuicultura', type:'mcq',
     title:'¿Cuál es un límite/riesgo de la acuicultura?',
@@ -452,13 +583,23 @@ var QUESTIONS = [
       {key:'C', text:'Prohíbe el consumo de agua'}
     ],
     answer:'A',
-    explain:'Puede requerir harinas/aceites y generar impactos locales si no se gestiona bien.'
+    explain:'Puede requerir harinas/aceites y generar impactos locales si no se gestiona bien.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Fish_farm_in_a_fjord,_Hardangerfjord,_Norway_02.jpg',
+      caption:'Jaulas flotantes de acuicultura en un fiordo.'
+    }
   },
   { id:33, tag:'UE', type:'short',
     title:'Dentro de la PAC, escribe el instrumento ambiental que retribuye prácticas sostenibles.',
     sub:'Una palabra.',
     answer:['ecoesquemas','ecoesquema'],
-    explain:'Los ecoesquemas incentivan prácticas beneficiosas para el clima y el medio.'
+    explain:'Los ecoesquemas incentivan prácticas beneficiosas para el clima y el medio.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/European_Union_Flag.jpg',
+      caption:'Bandera de la Unión Europea, que impulsa la PAC y los ecoesquemas.'
+    }
   },
   { id:34, tag:'UE', type:'mcq',
     title:'La PPC (pesca) persigue sobre todo…',
@@ -469,7 +610,12 @@ var QUESTIONS = [
       {key:'C', text:'Sustituir toda la pesca por acuicultura'}
     ],
     answer:'B',
-    explain:'Sostenibilidad biológica, social y económica de la actividad pesquera.'
+    explain:'Sostenibilidad biológica, social y económica de la actividad pesquera.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Fishing_boats_in_port_of_Vigo.jpg',
+      caption:'Puerto pesquero europeo donde actúa la Política Pesquera Común.'
+    }
   },
   { id:35, tag:'España', type:'mcq',
     title:'¿Qué grupo suele concentrar más valor en el regadío español?',
@@ -480,7 +626,12 @@ var QUESTIONS = [
       {key:'C', text:'Forrajeras'}
     ],
     answer:'A',
-    explain:'Frutas y hortalizas de regadío concentran gran parte del valor.'
+    explain:'Frutas y hortalizas de regadío concentran gran parte del valor.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Greenhouse_complex_in_El_Ejido,_Spain.jpg',
+      caption:'Invernaderos hortofrutícolas intensivos en el sureste español.'
+    }
   },
   { id:36, tag:'CYL', type:'mcq',
     title:'¿Cuál de las siguientes NO es una D.O. de Castilla y León?',
@@ -491,7 +642,12 @@ var QUESTIONS = [
       {key:'C', text:'La Mancha'}
     ],
     answer:'C',
-    explain:'“La Mancha” pertenece a Castilla-La Mancha, no a Castilla y León.'
+    explain:'“La Mancha” pertenece a Castilla-La Mancha, no a Castilla y León.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Vineyards_Rueda_DO,_Valladolid,_Spain.jpg',
+      caption:'Viñedos de la D.O. Rueda en Castilla y León.'
+    }
   },
   { id:37, tag:'CYL', type:'mcq',
     title:'En Castilla y León, ¿qué cabaña ganadera destaca especialmente?',
@@ -502,7 +658,12 @@ var QUESTIONS = [
       {key:'C', text:'Apícola (abejas)'}
     ],
     answer:'A',
-    explain:'CYL está entre las primeras CCAA en ovino.'
+    explain:'CYL está entre las primeras CCAA en ovino.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Sheep_in_Castilla_y_Le%C3%B3n.jpg',
+      caption:'Rebaño de ovejas en la meseta castellano-leonesa.'
+    }
   },
   { id:38, tag:'CYL', type:'mcq',
     title:'En la meseta de Castilla y León predomina…',
@@ -513,7 +674,12 @@ var QUESTIONS = [
       {key:'C', text:'Platanera'}
     ],
     answer:'A',
-    explain:'El cereal de secano es el cultivo más extendido.'
+    explain:'El cereal de secano es el cultivo más extendido.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Tierra_de_Campos_(1986).jpg',
+      caption:'Paisaje cerealista de Tierra de Campos en la meseta de Castilla y León.'
+    }
   },
   { id:39, tag:'Riego', type:'mcq',
     title:'¿Qué sistema suele ser más eficiente en uso de agua?',
@@ -524,15 +690,27 @@ var QUESTIONS = [
       {key:'C', text:'Inundación'}
     ],
     answer:'A',
-    explain:'El goteo aplica el agua justo al sistema radicular.'
+    explain:'El goteo aplica el agua justo al sistema radicular.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Drip_irrigation.jpg',
+      caption:'Ejemplo de riego por goteo de alta eficiencia hídrica.'
+    }
   },
   { id:40, tag:'Suelo', type:'short',
     title:'Escribe una técnica para frenar la erosión en laderas.',
     sub:'1–3 palabras.',
     answer:['bancales','terrazas','terrazamiento'],
-    explain:'El terrazamiento reduce la pendiente efectiva y la escorrentía.'
+    explain:'El terrazamiento reduce la pendiente efectiva y la escorrentía.',
+    media:{
+      kind:'img',
+      src:'https://commons.wikimedia.org/wiki/Special:FilePath/Terraced_fields_Sa_Pa_Vietnam.JPG',
+      caption:'Terrazas de cultivo que reducen la erosión en laderas.'
+    }
   }
 ];
+</script>
+
 
 /* ===== LÓGICA ROBUSTA PARA BLOGGER ===== */
 (function(){
